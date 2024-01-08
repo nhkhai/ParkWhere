@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 /* Place the shared .env file outside of the src folder in the project root directory. 
 Define the React App API Key variable in the .env file in the following syntax (variable name can be changed but must begin with REACT_APP_).  */
@@ -9,9 +9,9 @@ Define the React App API Key variable in the .env file in the following syntax (
 To use the env object to access the environment variables in the React App, 
 use the following call with the defined variable name defined previously above.  */
 // process.env.REACT_APP_API_KEY
-// or for html, calling the variable name defined previously above with the syntax %REACT_APP_API_KEY%. 
+// or for html, calling the variable name defined previously above with the syntax %REACT_APP_API_KEY%.
 
-// Alternatively, instead of the .env file, you can define it as an environment variable in the system (depends on the system) or temporarily on execution. 
+// Alternatively, instead of the .env file, you can define it as an environment variable in the system (depends on the system) or temporarily on execution.
 /* In Windows using cmd.exe (Quotes around the variable assignment are required to avoid a trailing whitespace. ): 
 set "REACT_APP_API_KEY=A1234567890B0987654321C" && npm start
 In Windows using Powershell: 
