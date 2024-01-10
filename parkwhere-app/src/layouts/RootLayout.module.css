@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300&family=Salsa&display=swap");
 
 :root {
   --color-primary: #378beb;
   --color-primary-light: #f3f0ff;
-  --color-primary-light-2: #e5dbff;
+  --color-primary-light-2: #dbf4ff;
   --color-primary-dark: #054a99;
 
   --color-grey-light-1: #faf9f9;
@@ -35,7 +35,7 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Salsa", sans-serif;
   font-size: 1.6rem;
   line-height: 1;
   font-weight: 400;
