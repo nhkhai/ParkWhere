@@ -7,7 +7,7 @@ function Search() {
       <h1>ParkHere</h1>
       <input
         type="text"
-        className="search-input"
+        className={styles.search["search-input"]}
         placeholder="Search location... "
       />
       <Button label={"Search"}></Button>

@@ -1,8 +1,10 @@
+import styles from "./Header.module.css";
+
 import ParkWhereLogo from "../assets/ParkWhereLogo.png";
 
 function Header() {
   return (
-    <header className="header">
+    <header className={styles.header}>
       <img
         className="App-logo"
         src={ParkWhereLogo}

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import Card from "./Card";
+import styles from "./SideNav.module.css";
 
 const navItems = [
   {
@@ -35,7 +36,7 @@ const customNavLinkStyle = ({ isActive }) =>
 
 function SideNav() {
   return (
-    <nav className="sidebar">
+    <nav className={styles.sidebar}>
       <Card>
         <NavItems />
       </Card>
@@ -47,7 +48,7 @@ function NavItems() {
   return (
     <ul className="side-menu">
       {navItems.map((item) => (
-        <li key={item.id} className="side-menu__item">
+        <li key={item.id} className={styles["side-menu__item"]}>
           <NavLink className={customNavLinkStyle} to={item.path}>
             {item.name}
           </NavLink>
