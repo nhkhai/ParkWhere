@@ -10,7 +10,7 @@ function Header() {
         src={ParkWhereLogo}
         alt="ParkWhere Logo"
         height={40}
-        style={{ marginLeft: 230 }}
+        style={{ marginLeft: 230, marginTop: 20 }}
       />
     </header>
   );
