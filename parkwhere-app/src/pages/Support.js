@@ -1,3 +1,5 @@
+import Button from "../components/Button";
+
 import styles from "./Support.module.css";
 
 function Support() {

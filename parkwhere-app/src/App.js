@@ -6,6 +6,8 @@ import Search from "./pages/Search";
 import Settings from "./pages/Settings";
 import Support from "./pages/Support";
 import RootLayout from "./layouts/RootLayout";
+import { GlobalProvider } from "./context/GlobalContext";
+
 import "./App.css";
 
 /* Place the shared .env file outside of the src folder in the project root directory. 
@@ -49,19 +51,21 @@ function DefaultPage() {
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<RootLayout />}>
-            <Route index element={<Home />} />
-            <Route path="search" element={<Search />} />
-            <Route path="settings" element={<Settings />} />
-            <Route path="support" element={<Support />} />
-            <Route path="about" element={<About />} />
-          </Route>
-          {/* No match route. */}
-          <Route path="*" element={<DefaultPage />} />
-        </Routes>
-      </BrowserRouter>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<RootLayout />}>
+              <Route index element={<Home />} />
+              <Route path="search" element={<Search />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="support" element={<Support />} />
+              <Route path="about" element={<About />} />
+            </Route>
+            {/* No match route. */}
+            <Route path="*" element={<DefaultPage />} />
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
     </div>
   );
 }
