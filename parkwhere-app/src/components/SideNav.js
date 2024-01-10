@@ -21,11 +21,6 @@ const navItems = [
   },
   {
     id: 4,
-    name: "Support",
-    path: "/support",
-  },
-  {
-    id: 5,
     name: "About",
     path: "/about",
   },

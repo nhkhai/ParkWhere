@@ -4,8 +4,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Search from "./pages/Search";
 import Settings from "./pages/Settings";
-import Support from "./pages/Support";
 import RootLayout from "./layouts/RootLayout";
+
 import { GlobalProvider } from "./context/GlobalContext";
 
 import "./App.css";
@@ -58,7 +58,6 @@ function App() {
               <Route index element={<Home />} />
               <Route path="search" element={<Search />} />
               <Route path="settings" element={<Settings />} />
-              <Route path="support" element={<Support />} />
               <Route path="about" element={<About />} />
             </Route>
             {/* No match route. */}
