@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./assets/ParkWhereLogo.png";
 import "./App.css";
 
 /* Place the shared .env file outside of the src folder in the project root directory. 
@@ -33,17 +33,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          ParkWhere
         </a>
+        <p>Parking lot availability at a glance! </p>
       </header>
     </div>
   );
