@@ -2,8 +2,8 @@ import styles from "./Search.module.css";
 
 function Search() {
   return (
-    <div className={styles.Search}>
-      <h2>ParkHere</h2>
+    <div className={styles.search}>
+      <h1>ParkHere</h1>
       <input
         type="text"
         className="search-input"
