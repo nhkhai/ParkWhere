@@ -1,0 +1,32 @@
+.sidebar {
+  flex: 0 0 200px;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  text-transform: uppercase;
+}
+
+.side-menu {
+  list-style: none;
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.side-menu__item {
+  margin-bottom: 2rem;
+}
+
+.nav-item {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-item-active {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  padding: 8px 12px;
+  background-color: var(--color-primary-light-2);
+  border-radius: 8px;
+}

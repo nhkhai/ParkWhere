@@ -1,0 +1,12 @@
+.settings {
+  width: 600;
+}
+
+.setting-input {
+  margin-right: 2rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-family: inherit;
+  width: 300px;
+}

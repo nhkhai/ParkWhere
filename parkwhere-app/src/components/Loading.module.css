@@ -1,0 +1,7 @@
+.loading {
+  width: 500;
+  height: 500;
+  display: "flex";
+  justifycontent: "center";
+  alignitems: "center";
+}
