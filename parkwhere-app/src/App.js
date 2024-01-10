@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Search from "./pages/Search";
+import Settings from "./pages/Settings";
+import Support from "./pages/Support";
 import RootLayout from "./layouts/RootLayout";
 import "./App.css";
 
@@ -52,6 +54,8 @@ function App() {
           <Route path="/" element={<RootLayout />}>
             <Route index element={<Home />} />
             <Route path="search" element={<Search />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="support" element={<Support />} />
             <Route path="about" element={<About />} />
           </Route>
           {/* No match route. */}
