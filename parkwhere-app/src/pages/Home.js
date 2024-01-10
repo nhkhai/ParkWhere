@@ -1,8 +1,7 @@
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      <p>Welcome, please select a menu item. </p>
+      <h1>ParkHere</h1>
     </div>
   );
 }

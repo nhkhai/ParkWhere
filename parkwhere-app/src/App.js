@@ -1,4 +1,9 @@
-import logo from "./assets/ParkWhereLogo.png";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Search from "./pages/Search";
+import RootLayout from "./layouts/RootLayout";
 import "./App.css";
 
 /* Place the shared .env file outside of the src folder in the project root directory. 
@@ -28,21 +33,31 @@ if (process.env.NODE_ENV !== 'production') {
   analytics.disable();
 } */
 
+function DefaultPage() {
+  const location = useLocation();
+
+  return (
+    <p>
+      You have entered an invalid path -{" "}
+      <span style={{ color: "red" }}>{location.pathname}</span>
+    </p>
+  );
+}
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ParkWhere
-        </a>
-        <p>Parking lot availability at a glance! </p>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<Home />} />
+            <Route path="search" element={<Search />} />
+            <Route path="about" element={<About />} />
+          </Route>
+          {/* No match route. */}
+          <Route path="*" element={<DefaultPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
