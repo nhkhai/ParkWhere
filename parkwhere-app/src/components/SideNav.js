@@ -46,7 +46,7 @@ function SideNav() {
 
 function NavItems() {
   return (
-    <ul className="side-menu">
+    <ul className={styles["side-menu"]}>
       {navItems.map((item) => (
         <li key={item.id} className={styles["side-menu__item"]}>
           <NavLink className={customNavLinkStyle} to={item.path}>

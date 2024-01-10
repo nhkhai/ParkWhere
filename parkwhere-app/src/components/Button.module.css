@@ -4,8 +4,8 @@ button {
   border: none;
   background-color: var(--color-primary-dark);
   color: #fff;
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.8rem;
+  font-weight: 500;
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease-in;
