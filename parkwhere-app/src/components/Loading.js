@@ -1,16 +1,10 @@
 import { PacmanLoader } from "react-spinners";
 
+import styles from "./Loading.module.css";
+
 function Loading() {
   return (
-    <div
-      style={{
-        width: 500,
-        height: 500,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div class={styles.loading}>
       <PacmanLoader color="#5f3dc4" />
     </div>
   );
