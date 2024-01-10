@@ -5,10 +5,13 @@ import styles from "./Settings.module.css";
 function Settings() {
   return (
     <div className={styles.settings}>
-      <h1>Settings Page</h1>
-      <h2>Change your settings here. </h2>
+      <h1>Settings</h1>
+      <h2>Personalization</h2>
       <p>Favorite Location: </p>
-      <input type="text" className={styles.settings["setting-input"]} />
+      <input
+        type="text"
+        className={styles.settings["setting-input"]}
+      />
       <Button label={"Save"}></Button>
     </div>
   );

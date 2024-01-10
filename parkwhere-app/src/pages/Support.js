@@ -3,8 +3,9 @@ import styles from "./Support.module.css";
 function Support() {
   return (
     <div className={styles.support}>
-      <h1>Support Page</h1>
-      <p>Contact support. </p>
+      <h1>Support</h1>
+      <h2>Contact Support</h2>
+      <Button label={"Call"}></Button>
     </div>
   );
 }
