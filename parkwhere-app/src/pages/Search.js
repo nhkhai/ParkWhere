@@ -1,4 +1,5 @@
 import styles from "./Search.module.css";
+import Button from "../components/Button";
 
 function Search() {
   return (
@@ -9,7 +10,7 @@ function Search() {
         className="search-input"
         placeholder="Search location... "
       />
-      <button>Search</button>
+      <Button label={"Search"}></Button>
     </div>
   );
 }
