@@ -1,16 +1,15 @@
-import styles from "./Search.module.css";
-import Button from "../components/Button";
 import { v4 as uuid } from "uuid";
 import { BeatLoader } from "react-spinners";
-import { useState } from "react";
+import { useContext } from "react";
 import { useEffect } from "react";
 import carparkDetails from "./../data/HDBCarparkInformation.json";
 import axios from "axios";
+import GlobalContext from "../context/GlobalContext";
 
 function Search() {
-  const [search, setSearch] = useState("");
-  const [parkList, setParkList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const globalCtx = useContext(GlobalContext);
+  const { search, setSearch, parkList, setParkList, isLoading, setIsLoading } =
+    globalCtx;
 
   useEffect(() => {
     getSlots();
