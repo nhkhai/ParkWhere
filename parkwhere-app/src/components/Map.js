@@ -27,8 +27,8 @@ console.log(`Longitude: ${longitude}, Latitude: ${latitude}`);
 function Map() {
   const defaultProps = {
     center: {
-      lat: 1.48,
-      lng: 104,
+      lat: latitude,
+      lng: longitude,
     },
     zoom: 14,
   };
