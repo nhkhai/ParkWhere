@@ -1,10 +1,11 @@
 import { v4 as uuid } from "uuid";
 import { BeatLoader } from "react-spinners";
-import { useContext } from "react";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import carparkDetails from "./../data/HDBCarparkInformation.json";
 import axios from "axios";
 import GlobalContext from "../context/GlobalContext";
+import { NavLink } from "react-router-dom";
+import styles from "./Search.module.css";
 
 function Search() {
   const globalCtx = useContext(GlobalContext);
@@ -80,15 +81,18 @@ function Search() {
               </tr>
             </thead>
             <tbody>
-              {/* {console.log("parkList: ", parkList)}
-              {console.log("search: ", search)} */}
               {filteredLots.map((parkingLot, index) => (
-                <tr key={uuid()}>
+                <tr key={uuid()} className={styles.listRow}>
                   <td>{index}</td>
                   <td>{parkingLot.carpark_number}</td>
                   <td>{parkingLot.address}</td>
                   <td>{parkingLot.carpark_info[0].lots_available}</td>
                   <td>{parkingLot.carpark_info[0].total_lots}</td>
+                  <NavLink
+                    to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
+                  >
+                    View Details
+                  </NavLink>
                 </tr>
               ))}
             </tbody>

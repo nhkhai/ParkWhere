@@ -16,3 +16,8 @@
   font-family: inherit;
   width: 300px;
 }
+
+.listRow > td {
+  margin: 10px;
+  padding: 5px;
+}
