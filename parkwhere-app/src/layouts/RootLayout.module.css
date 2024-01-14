@@ -104,6 +104,10 @@ a:active {
   gap: 2rem;
 }
 
+.dark {
+  background: #222;
+  color: #eee;
+}
 .main {
   margin-top: 2rem;
   margin-bottom: 2rem;
