@@ -12,10 +12,48 @@ function Search() {
   const [parkList, setParkList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  // caelen (140124): adding new states for search results batching, and page
+  const [searchResultsBatch, setSearchResultsBatch] = useState(10);
+  const [resultsPage, setResultsPage] = useState(1);
+  const [visibleResults, setVisibleResults] = useState([]);
+
+
+
   useEffect(() => {
     getSlots();
   }, []);
+/*
+  useEffect(() => {
+    setVisibleResults(search.slice((resultsPage - 1) * searchResultsBatch, resultsPage * searchResultsBatch));
+  }, [search, searchResultsBatch, resultsPage]);
 
+  useEffect(() => {
+    getSlots(search.slice((resultsPage - 1) * searchResultsBatch, resultsPage * searchResultsBatch));
+  }, [search, searchResultsBatch, resultsPage]);
+
+  const handleResultsToggle = (newSearchResultsBatch) => {
+    setSearchResultsBatch(newSearchResultsBatch);
+    setResultsPage(1); 
+  };
+
+  const loadMoreResults = () => {
+    getSlots();
+    setResultsPage(resultsPage + 1);
+  };
+
+  const goToPrevPage = () => {
+    if (resultsPage > 1) {
+      setResultsPage(resultsPage - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    const totalPages = Math.ceil(search.length / searchResultsBatch);
+    if (resultsPage < totalPages) {
+      setResultsPage(resultsPage + 1);
+    }
+  }; 
+*/
   const getSlots = async () => {
     try {
       setIsLoading(true);
@@ -63,6 +101,13 @@ function Search() {
     <div className="Lots">
       Carpark App
       <button onClick={getSlots}>refresh</button>
+      <div>
+        <select value={searchResultsBatch} onChange={e => setSearchResultsBatch(e.target.value)}>
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+          <option value={filteredLots.length}>All</option>
+        </select>
+      </div>
       <input onChange={(e) => setSearch(e.target.value)} value={search}></input>
       <div>
         {isLoading ? (
@@ -83,7 +128,7 @@ function Search() {
             <tbody>
               {/* {console.log("parkList: ", parkList)}
               {console.log("search: ", search)} */}
-              {filteredLots.map((parkingLot, index) => (
+              {filteredLots.slice(0, searchResultsBatch).map((parkingLot, index) => (
                 <tr key={uuid()}>
                   <td>{index}</td>
                   <td>{parkingLot.carpark_number}</td>
@@ -95,6 +140,20 @@ function Search() {
             </tbody>
           </table>
         )}
+
+        {/* Nav arrows 
+        <button onClick={goToPrevPage} disabled={resultsPage === 1}>
+          Previous Page
+        </button>
+        <button onClick={goToNextPage} disabled={resultsPage === 1}>
+          Next Page
+        </button>
+
+        {/* Load More to fetch more results 
+        <button onClick={loadMoreResults}>
+          Load More
+        </button>
+      */}
       </div>
     </div>
   );
