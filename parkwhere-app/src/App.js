@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Search from "./pages/Search";
 import Settings from "./pages/Settings";
 import RootLayout from "./layouts/RootLayout";
+import Map from "./components/Map";
 
 import { GlobalProvider } from "./context/GlobalContext";
 import { ModeProvider } from "./context/ModeContext";
@@ -59,6 +60,7 @@ function App() {
               <Route path="/" element={<RootLayout />}>
                 <Route index element={<Home />} />
                 <Route path="search" element={<Search />} />
+                <Route path="search/:id" element={<Map />} />
                 <Route path="settings" element={<Settings />} />
                 <Route path="about" element={<About />} />
               </Route>

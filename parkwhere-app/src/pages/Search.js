@@ -1,16 +1,16 @@
-import styles from "./Search.module.css";
-import Button from "../components/Button";
 import { v4 as uuid } from "uuid";
 import { BeatLoader } from "react-spinners";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import carparkDetails from "./../data/HDBCarparkInformation.json";
 import axios from "axios";
+import GlobalContext from "../context/GlobalContext";
+import { NavLink } from "react-router-dom";
+import styles from "./Search.module.css";
 
 function Search() {
-  const [search, setSearch] = useState("");
-  const [parkList, setParkList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const globalCtx = useContext(GlobalContext);
+  const { search, setSearch, parkList, setParkList, isLoading, setIsLoading } =
+    globalCtx;
 
   // caelen (140124): adding new states for search results batching, and page
   const [searchResultsBatch, setSearchResultsBatch] = useState(10);
@@ -89,7 +89,6 @@ function Search() {
     }
   };
   //FILTER FUNCTION
-  //  const filteredProducts = input === ""?products:products.filter(product => product.price < Number(input)) //filter works now, trick is to NOT filter a state but the original product array itself
   const filteredLots = parkList.filter((parkingLot) => {
     return search === ""
       ? parkingLot
@@ -126,15 +125,19 @@ function Search() {
               </tr>
             </thead>
             <tbody>
-              {/* {console.log("parkList: ", parkList)}
-              {console.log("search: ", search)} */}
+
               {filteredLots.slice(0, searchResultsBatch).map((parkingLot, index) => (
-                <tr key={uuid()}>
+                <tr key={uuid()} className={styles.listRow}>
                   <td>{index}</td>
                   <td>{parkingLot.carpark_number}</td>
                   <td>{parkingLot.address}</td>
                   <td>{parkingLot.carpark_info[0].lots_available}</td>
                   <td>{parkingLot.carpark_info[0].total_lots}</td>
+                  <NavLink
+                    to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
+                  >
+                    View Details
+                  </NavLink>
                 </tr>
               ))}
             </tbody>

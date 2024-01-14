@@ -15,9 +15,19 @@ export function GlobalProvider({ children }) {
     globalObj2Element3: "Global Object 2 Element 3",
   });
 
+  const [search, setSearch] = useState("");
+  const [parkList, setParkList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const context = {
     globalObj,
     globalObj2,
+    search,
+    setSearch,
+    parkList,
+    setParkList,
+    isLoading,
+    setIsLoading,
   };
 
   return (
