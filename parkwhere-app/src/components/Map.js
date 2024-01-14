@@ -25,7 +25,7 @@ let [longitude, latitude] = proj4(svy21Proj, wgs84Proj, [x_svy21, y_svy21]);
 console.log(`Longitude: ${longitude}, Latitude: ${latitude}`);
 
 function Map() {
-  const defaultProps = {
+  const mapData = {
     center: {
       lat: latitude,
       lng: longitude,
@@ -41,8 +41,8 @@ function Map() {
         </Link>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GMAP_API_KEY }}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
+          defaultCenter={mapData.center}
+          defaultZoom={mapData.zoom}
         >
           <Home />
         </GoogleMapReact>
