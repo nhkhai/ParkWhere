@@ -7,6 +7,7 @@ import Settings from "./pages/Settings";
 import RootLayout from "./layouts/RootLayout";
 
 import { GlobalProvider } from "./context/GlobalContext";
+import { ModeProvider } from "./context/ModeContext";
 
 import "./App.css";
 
@@ -52,18 +53,20 @@ function App() {
   return (
     <div className="App">
       <GlobalProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<RootLayout />}>
-              <Route index element={<Home />} />
-              <Route path="search" element={<Search />} />
-              <Route path="settings" element={<Settings />} />
-              <Route path="about" element={<About />} />
-            </Route>
-            {/* No match route. */}
-            <Route path="*" element={<DefaultPage />} />
-          </Routes>
-        </BrowserRouter>
+        <ModeProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<RootLayout />}>
+                <Route index element={<Home />} />
+                <Route path="search" element={<Search />} />
+                <Route path="settings" element={<Settings />} />
+                <Route path="about" element={<About />} />
+              </Route>
+              {/* No match route. */}
+              <Route path="*" element={<DefaultPage />} />
+            </Routes>
+          </BrowserRouter>
+        </ModeProvider>
       </GlobalProvider>
     </div>
   );
