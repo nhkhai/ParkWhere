@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import Card from "./Card";
 import styles from "./SideNav.module.css";
+import Toggle from "./Toggle";
 
 const navItems = [
   {
@@ -33,6 +34,7 @@ function SideNav() {
   return (
     <nav className={styles.sidebar}>
       <Card>
+        <Toggle />
         <NavItems />
       </Card>
     </nav>

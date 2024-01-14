@@ -6,9 +6,14 @@ import Card from "../components/Card";
 
 import styles from "./RootLayout.module.css";
 
+import { useContext } from "react";
+import ModeContext from "../context/ModeContext";
+
 function RootLayout() {
+  const modeCtx = useContext(ModeContext);
+
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${!modeCtx.isLight && styles.dark}`}>
       <Header />
       <div className={styles.content}>
         <SideNav />
