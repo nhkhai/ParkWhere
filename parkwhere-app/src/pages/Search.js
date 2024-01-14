@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { BeatLoader } from "react-spinners";
-import { useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import carparkDetails from "./../data/HDBCarparkInformation.json";
 import axios from "axios";
 import GlobalContext from "../context/GlobalContext";
@@ -17,12 +17,10 @@ function Search() {
   const [resultsPage, setResultsPage] = useState(1);
   const [visibleResults, setVisibleResults] = useState([]);
 
-
-
   useEffect(() => {
     getSlots();
   }, []);
-/*
+  /*
   useEffect(() => {
     setVisibleResults(search.slice((resultsPage - 1) * searchResultsBatch, resultsPage * searchResultsBatch));
   }, [search, searchResultsBatch, resultsPage]);
@@ -101,7 +99,10 @@ function Search() {
       Carpark App
       <button onClick={getSlots}>refresh</button>
       <div>
-        <select value={searchResultsBatch} onChange={e => setSearchResultsBatch(e.target.value)}>
+        <select
+          value={searchResultsBatch}
+          onChange={(e) => setSearchResultsBatch(e.target.value)}
+        >
           <option value={10}>10</option>
           <option value={20}>20</option>
           <option value={filteredLots.length}>All</option>
@@ -125,21 +126,22 @@ function Search() {
               </tr>
             </thead>
             <tbody>
-
-              {filteredLots.slice(0, searchResultsBatch).map((parkingLot, index) => (
-                <tr key={uuid()} className={styles.listRow}>
-                  <td>{index}</td>
-                  <td>{parkingLot.carpark_number}</td>
-                  <td>{parkingLot.address}</td>
-                  <td>{parkingLot.carpark_info[0].lots_available}</td>
-                  <td>{parkingLot.carpark_info[0].total_lots}</td>
-                  <NavLink
-                    to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
-                  >
-                    View Details
-                  </NavLink>
-                </tr>
-              ))}
+              {filteredLots
+                .slice(0, searchResultsBatch)
+                .map((parkingLot, index) => (
+                  <tr key={uuid()} className={styles.listRow}>
+                    <td>{index}</td>
+                    <td>{parkingLot.carpark_number}</td>
+                    <td>{parkingLot.address}</td>
+                    <td>{parkingLot.carpark_info[0].lots_available}</td>
+                    <td>{parkingLot.carpark_info[0].total_lots}</td>
+                    <NavLink
+                      to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
+                    >
+                      View Details
+                    </NavLink>
+                  </tr>
+                ))}
             </tbody>
           </table>
         )}
