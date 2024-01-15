@@ -1,6 +1,7 @@
 {
   "name": "parkwhere-app",
   "version": "0.1.0",
+  "homepage": "/ParkWhere/#",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
