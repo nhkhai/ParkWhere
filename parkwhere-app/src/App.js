@@ -59,10 +59,10 @@ function App() {
             <Routes>
               <Route path="/" element={<RootLayout />}>
                 <Route index element={<Home />} />
-                <Route path="search" element={<Search />} />
-                <Route path="search/:id" element={<Map />} />
-                <Route path="settings" element={<Settings />} />
-                <Route path="about" element={<About />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/search/:id" element={<Map />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/about" element={<About />} />
               </Route>
               {/* No match route. */}
               <Route path="*" element={<DefaultPage />} />
