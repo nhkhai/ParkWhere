@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -39,7 +39,7 @@ if (process.env.NODE_ENV !== 'production') {
   analytics.disable();
 } */
 
-function DefaultPage() {
+function ErrorPage() {
   const location = useLocation();
 
   return (
@@ -55,19 +55,19 @@ function App() {
     <div className="App">
       <GlobalProvider>
         <ModeProvider>
-          <HashRouter>
+          <BrowserRouter>
             <Routes>
               <Route path="/" element={<RootLayout />}>
                 <Route index element={<Home />} />
-                <Route path="search" element={<Search />} />
-                <Route path="search/:id" element={<Map />} />
-                <Route path="settings" element={<Settings />} />
-                <Route path="about" element={<About />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/search/:id" element={<Map />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/about" element={<About />} />
               </Route>
               {/* No match route. */}
-              <Route path="*" element={<DefaultPage />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
-          </HashRouter>
+          </BrowserRouter>
         </ModeProvider>
       </GlobalProvider>
     </div>
