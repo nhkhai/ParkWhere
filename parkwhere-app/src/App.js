@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -55,7 +55,7 @@ function App() {
     <div className="App">
       <GlobalProvider>
         <ModeProvider>
-          <HashRouter>
+          <BrowserRouter>
             <Routes>
               <Route path="/" element={<RootLayout />}>
                 <Route index element={<Home />} />
@@ -67,7 +67,7 @@ function App() {
               {/* No match route. */}
               <Route path="*" element={<ErrorPage />} />
             </Routes>
-          </HashRouter>
+          </BrowserRouter>
         </ModeProvider>
       </GlobalProvider>
     </div>
