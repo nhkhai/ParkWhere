@@ -39,7 +39,7 @@ if (process.env.NODE_ENV !== 'production') {
   analytics.disable();
 } */
 
-function DefaultPage() {
+function ErrorPage() {
   const location = useLocation();
 
   return (
@@ -65,7 +65,7 @@ function App() {
                 <Route path="/about" element={<About />} />
               </Route>
               {/* No match route. */}
-              <Route path="*" element={<DefaultPage />} />
+              <Route path="*" element={<ErrorPage />} />
             </Routes>
           </HashRouter>
         </ModeProvider>
