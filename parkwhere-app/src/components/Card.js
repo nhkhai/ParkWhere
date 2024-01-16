@@ -6,7 +6,7 @@ function Card({ children }) {
   const modeCtx = useContext(ModeContext);
 
   return (
-    <div className={`${styles.card} ${!modeCtx.isLight && styles.dark}`}>
+    <div className={`${modeCtx.isLight ? styles.card : styles.dark}`}>
       {children}
     </div>
   );

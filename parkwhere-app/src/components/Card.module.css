@@ -6,6 +6,9 @@
 }
 
 .dark {
-  background: #222;
-  color: #eee;
+  padding: 20px;
+  background: #f3f0ff;
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+  color: #2d2d2d;
 }
