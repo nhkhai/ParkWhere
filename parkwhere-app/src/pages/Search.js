@@ -108,6 +108,7 @@ function Search() {
           <option value={filteredLots.length}>All</option>
         </select>
       </div>
+      <br />
       <input onChange={(e) => setSearch(e.target.value)} value={search}></input>
       <div>
         {isLoading ? (

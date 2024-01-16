@@ -39,7 +39,7 @@ body {
   font-size: 1.6rem;
   line-height: 1;
   font-weight: 400;
-  color: var(--color-grey-dark-2);
+  color: var(--color-grey-dark-1);
 
   background-image: linear-gradient(
     to right bottom,
@@ -107,11 +107,13 @@ a:active {
 .dark {
   background: #222;
   color: #eee;
+  min-height: 100vh;
 }
 .main {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  width: 200vh;
+  margin-right: 2rem;
+  width: 100%;
 }
 
 .menu-btn {

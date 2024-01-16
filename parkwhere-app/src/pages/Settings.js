@@ -17,6 +17,7 @@ function Settings() {
       <h1>Settings</h1>
       <h2>Personalization</h2>
       <p>Favorite Location: </p>
+      <br />
       <input
         type="text"
         value={globalObj.globalObjElement1}
