@@ -95,8 +95,7 @@ function Search() {
   });
 
   return (
-    <div className="Lots">
-      Carpark App
+    <div className={styles.searchContainer}>
       <button onClick={getSlots}>refresh</button>
       <div>
         <select
@@ -110,30 +109,31 @@ function Search() {
       </div>
       <br />
       <input onChange={(e) => setSearch(e.target.value)} value={search}></input>
-      <div>
+      <div className={styles.searchContainer}>
         {isLoading ? (
           <div className="loader">
             <BeatLoader />
           </div>
-        ) : (
-          <table className="table">
+        ) : filteredLots.length ? (
+          <table className={styles.table}>
             <thead>
-              <tr>
+              <tr className={styles.tableContainer}>
                 <th>Index</th>
                 <th>Carpark Number</th>
                 <th>Address</th>
                 <th>Lots Available</th>
                 <th>Total Lots</th>
+                <th>🗺️</th>
               </tr>
             </thead>
             <tbody>
               {filteredLots
                 .slice(0, searchResultsBatch)
                 .map((parkingLot, index) => (
-                  <tr key={uuid()} className={styles.listRow}>
+                  <tr key={uuid()} className={styles.tableContainer}>
                     <td>{index}</td>
                     <td>{parkingLot.carpark_number}</td>
-                    <td>{parkingLot.address}</td>
+                    <td className={styles.address}>{parkingLot.address}</td>
                     <td>{parkingLot.carpark_info[0].lots_available}</td>
                     <td>{parkingLot.carpark_info[0].total_lots}</td>
                     <NavLink
@@ -145,6 +145,8 @@ function Search() {
                 ))}
             </tbody>
           </table>
+        ) : (
+          <h4 style={{ margin: "20px" }}>Type a valid parking Lot</h4>
         )}
 
         {/* Nav arrows 

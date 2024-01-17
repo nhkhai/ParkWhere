@@ -1,4 +1,4 @@
-.search {
+.searchContainer {
   width: 100%;
   height: 100vh;
   position: relative;
@@ -17,8 +17,27 @@
   width: 300px;
 }
 
-.listRow > td {
-  margin: 10px;
-  padding: 5px;
+.listContainer {
+  margin: 0 50px;
 }
 
+.table {
+  position: relative;
+  width: 100%;
+  margin: 10px;
+}
+
+td,
+th {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.address {
+  width: 400px;
+}
+
+.tableMain {
+  position: relative;
+}
