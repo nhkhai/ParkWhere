@@ -63,7 +63,7 @@ function App() {
                   <Route index element={<Home />} />
                   <Route path="/search" element={<Search />} />
                   <Route path="/search/:id" element={<Map />} />
-                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/favorites" element={<Favorites />} />
                   <Route path="/about" element={<About />} />
                 </Route>
                 {/* No match route. */}
