@@ -38,17 +38,13 @@ function UserBar() {
       }`}
     >
       <form className={styles.userBarForm} onSubmit={handlerSubmit}>
-        <label className={`${!modeCtx.isLight && styles.darkLabel}`}>
-          username
-        </label>
+        <label>username</label>
         <input
           name="username"
           value={credentials.username}
           onChange={handlerChangeCredentials}
         />
-        <label className={`${!modeCtx.isLight && styles.darkLabel}`}>
-          password
-        </label>
+        <label>password</label>
         <input
           name="password"
           type="password"
