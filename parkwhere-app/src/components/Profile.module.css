@@ -1,0 +1,21 @@
+.profile {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.logo {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: translateY(-5px); /* Move up by 5 pixels on hover */
+}
+
+h3 {
+  margin: 1.5rem;
+}

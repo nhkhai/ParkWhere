@@ -89,12 +89,6 @@ a:visited {
   color: var(--color-primary-dark);
 }
 
-a:hover,
-a:active {
-  color: var(--color-primary);
-  background-color: var(--color-primary-light);
-}
-
 .container {
   max-width: 100%;
 }

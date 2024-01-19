@@ -1,3 +1,14 @@
 .about {
   width: 600;
 }
+
+.profileCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+p {
+  margin: 2rem;
+}

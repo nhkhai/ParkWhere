@@ -93,7 +93,7 @@ function Search() {
                 <th>Address</th>
                 <th>Lots Available</th>
                 <th>Total Lots</th>
-                <th>🗺️</th>
+                <th>View on Map 🗺️</th>
                 <th>Add to Fav</th>
               </tr>
             </thead>
@@ -113,7 +113,7 @@ function Search() {
                       <NavLink
                         to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
                       >
-                        View Details
+                        <button className={styles.details}>Map View</button>
                       </NavLink>
                     </td>
                     <td>
