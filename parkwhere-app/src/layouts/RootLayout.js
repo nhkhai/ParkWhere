@@ -8,12 +8,14 @@ import styles from "./RootLayout.module.css";
 
 import { useContext } from "react";
 import ModeContext from "../context/ModeContext";
+import UserBar from "../components/UserBar";
 
 function RootLayout() {
   const modeCtx = useContext(ModeContext);
 
   return (
     <div className={`${styles.container} ${!modeCtx.isLight && styles.dark}`}>
+      <UserBar />
       <Header />
       <div className={styles.content}>
         <SideNav />

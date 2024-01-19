@@ -1,0 +1,59 @@
+.userBarContainer {
+  margin: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #88b7ed;
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 630px;
+}
+
+.userBarContainer label {
+  font-weight: 700;
+  color: #333;
+}
+
+.userBarContainer input {
+  width: 200px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.userBarContainer button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.userBarContainer button:hover {
+  color: #fff;
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.userBarForm {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.userBarContainerDark {
+  margin: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: var(--color-grey-dark-2);
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 630px;
+}
+
+.darkLabel {
+  font-weight: 700;
+  color: #ccc;
+}
