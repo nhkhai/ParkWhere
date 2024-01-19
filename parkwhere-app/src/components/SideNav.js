@@ -17,8 +17,8 @@ const navItems = [
   },
   {
     id: 3,
-    name: "Settings",
-    path: "/settings",
+    name: "Favorites",
+    path: "/favorites",
   },
   {
     id: 4,
