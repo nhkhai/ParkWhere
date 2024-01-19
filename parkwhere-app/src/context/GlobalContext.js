@@ -9,12 +9,25 @@ export function GlobalProvider({ children }) {
   const [favoriteList, setFavoriteList] = useState([]);
 
   const handleFavorites = (carpark_number) => {
-    setFavoriteList([
-      ...favoriteList,
-      parkList.find(
-        (parkingLot) => parkingLot.carpark_number === carpark_number
-      ),
-    ]);
+    // Check if the carpark_number already exists in favoriteList.
+    const isAlreadyFavorite = favoriteList.some(
+      (parkingLot) => parkingLot.carpark_number === carpark_number
+    );
+
+    if (!isAlreadyFavorite) {
+      // Add to favoriteList only if it's not already a favorite.
+      setFavoriteList([
+        ...favoriteList,
+        parkList.find(
+          (parkingLot) => parkingLot.carpark_number === carpark_number
+        ),
+      ]);
+    } else {
+      // Optionally handle the case when it's already a favorite, like showing an alert.
+      console.log("This carpark number is already in your favorites.");
+    }
+
+    // For debugging, to see the updated list of favorites.
     console.log(favoriteList);
   };
 
