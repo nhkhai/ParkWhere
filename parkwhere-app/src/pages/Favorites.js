@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
+import { NavLink } from "react-router-dom";
 import styles from "./Favorites.module.css";
 
 function Favorites() {
@@ -28,6 +29,7 @@ function Favorites() {
             <th>Address</th>
             <th>Lots Available</th>
             <th>Total Lots</th>
+            <th>View on Map 🗺️</th>
             <th>Remove</th>
           </tr>
         </thead>
@@ -38,6 +40,11 @@ function Favorites() {
               <td>{favLot.address}</td>
               <td>{favLot.carpark_info[0].lots_available}</td>
               <td>{favLot.carpark_info[0].total_lots}</td>
+              <td>
+                <NavLink to={`/search/${favLot.x_coord},${favLot.y_coord}`}>
+                  <button className={styles.details}>Map View</button>
+                </NavLink>
+              </td>
               <td>
                 <button onClick={() => removeFavHandler(favLot.carpark_number)}>
                   ❌
