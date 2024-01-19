@@ -9,6 +9,7 @@ import Map from "./components/Map";
 
 import { GlobalProvider } from "./context/GlobalContext";
 import { ModeProvider } from "./context/ModeContext";
+import { UserProvider } from "./context/UserContext";
 
 import "./App.css";
 
@@ -54,21 +55,23 @@ function App() {
   return (
     <div className="App">
       <GlobalProvider>
-        <ModeProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<RootLayout />}>
-                <Route index element={<Home />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="/search/:id" element={<Map />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/about" element={<About />} />
-              </Route>
-              {/* No match route. */}
-              <Route path="*" element={<ErrorPage />} />
-            </Routes>
-          </BrowserRouter>
-        </ModeProvider>
+        <UserProvider>
+          <ModeProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<RootLayout />}>
+                  <Route index element={<Home />} />
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/search/:id" element={<Map />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/about" element={<About />} />
+                </Route>
+                {/* No match route. */}
+                <Route path="*" element={<ErrorPage />} />
+              </Routes>
+            </BrowserRouter>
+          </ModeProvider>
+        </UserProvider>
       </GlobalProvider>
     </div>
   );
