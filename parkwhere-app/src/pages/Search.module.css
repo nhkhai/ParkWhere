@@ -15,6 +15,12 @@ th {
   width: 400px;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .tableMain {
   position: relative;
 }
