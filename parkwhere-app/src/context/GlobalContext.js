@@ -1,33 +1,31 @@
 import { createContext, useState } from "react";
 
+
 const GlobalContext = createContext();
 
 export function GlobalProvider({ children }) {
-  const [globalObj, setGlobalObj] = useState({
-    globalObjElement1: "Thomson Road",
-    globalObjElement2: "Global Object Element 2",
-    globalObjElement3: "Global Object Element 3",
-  });
-
-  const [globalObj2, setGlobalObj2] = useState({
-    globalObj2Element1: "Global Object 2 Element 1",
-    globalObj2Element2: "Global Object 2 Element 2",
-    globalObj2Element3: "Global Object 2 Element 3",
-  });
-
+  
   const [search, setSearch] = useState("");
   const [parkList, setParkList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [favoriteList,setFavoriteList] = useState([])
+
+  const handleFavorites = (carpark_number) => {
+    setFavoriteList([...favoriteList,parkList.find(parkingLot => parkingLot.carpark_number === carpark_number)])
+    console.log(favoriteList)
+  }
+
 
   const context = {
-    globalObj,
-    globalObj2,
     search,
     setSearch,
     parkList,
     setParkList,
     isLoading,
     setIsLoading,
+    favoriteList,
+    setFavoriteList,
+    handleFavorites
   };
 
   return (
