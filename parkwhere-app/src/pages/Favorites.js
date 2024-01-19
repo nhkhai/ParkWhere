@@ -1,12 +1,21 @@
 import { useContext } from "react";
-import styles from "./Settings.module.css";
 import GlobalContext from "../context/GlobalContext";
+import styles from "./Favorites.module.css";
 
 function Favorites() {
   const globalCtx = useContext(GlobalContext);
-  const { favoriteList } = globalCtx;
+  const { favoriteList, setFavoriteList } = globalCtx;
 
-  const removeFavHandler = () => {};
+  const removeFavHandler = (carpark_number) => {
+    console.log("removeFavHandler-carpark number is: ", carpark_number);
+    let newFavList = [...favoriteList];
+    console.log("removeFavHandler-newFavList: ", newFavList);
+    newFavList = newFavList.filter(
+      (favLot) => favLot.carpark_number !== carpark_number
+    );
+    console.log("removeFavHandler-newFavList: ", newFavList);
+    setFavoriteList(newFavList);
+  };
 
   return (
     <div className={styles.settings}>
@@ -23,14 +32,16 @@ function Favorites() {
           </tr>
         </thead>
         <tbody>
-          {favoriteList.map((favItem) => (
-            <tr key={favItem.carpark_number}>
-              <td>{favItem.carpark_number}</td>
-              <td>{favItem.address}</td>
-              <td>{favItem.carpark_info[0].lots_available}</td>
-              <td>{favItem.carpark_info[0].total_lots}</td>
+          {favoriteList.map((favLot) => (
+            <tr key={favLot.carpark_number}>
+              <td>{favLot.carpark_number}</td>
+              <td>{favLot.address}</td>
+              <td>{favLot.carpark_info[0].lots_available}</td>
+              <td>{favLot.carpark_info[0].total_lots}</td>
               <td>
-                <button onClick={() => removeFavHandler()}>❌</button>
+                <button onClick={() => removeFavHandler(favLot.carpark_number)}>
+                  ❌
+                </button>
               </td>
             </tr>
           ))}

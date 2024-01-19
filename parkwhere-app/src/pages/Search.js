@@ -8,8 +8,15 @@ import styles from "./Search.module.css";
 
 function Search() {
   const globalCtx = useContext(GlobalContext);
-  const { search, setSearch, parkList, setParkList, isLoading, setIsLoading,handleFavorites } =
-    globalCtx;
+  const {
+    search,
+    setSearch,
+    parkList,
+    setParkList,
+    isLoading,
+    setIsLoading,
+    handleFavorites,
+  } = globalCtx;
   const [searchResultsBatch, setSearchResultsBatch] = useState(10);
 
   useEffect(() => {
@@ -58,7 +65,6 @@ function Search() {
           parkingLot.carpark_number.includes(search.toUpperCase());
   });
 
-
   return (
     <div className={styles.searchContainer}>
       <button onClick={getSlots}>refresh</button>
@@ -83,7 +89,6 @@ function Search() {
           <table className={styles.table}>
             <thead>
               <tr className={styles.tableContainer}>
-                <th>Index</th>
                 <th>Carpark Number</th>
                 <th>Address</th>
                 <th>Lots Available</th>
@@ -96,20 +101,30 @@ function Search() {
               {filteredLots
                 .slice(0, searchResultsBatch)
                 .map((parkingLot, index) => (
-                  <tr key={parkingLot.carpark_number} className={styles.tableContainer}>
-                    <td>{index}</td>
+                  <tr
+                    key={parkingLot.carpark_number}
+                    className={styles.tableContainer}
+                  >
                     <td>{parkingLot.carpark_number}</td>
                     <td className={styles.address}>{parkingLot.address}</td>
                     <td>{parkingLot.carpark_info[0].lots_available}</td>
                     <td>{parkingLot.carpark_info[0].total_lots}</td>
                     <td>
-                    <NavLink
-                      to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
-                    >
-                      View Details
-                    </NavLink>
+                      <NavLink
+                        to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
+                      >
+                        View Details
+                      </NavLink>
                     </td>
-                    <td><button onClick={() => handleFavorites(parkingLot.carpark_number)}>Favorite ⭐</button></td>
+                    <td>
+                      <button
+                        onClick={() =>
+                          handleFavorites(parkingLot.carpark_number)
+                        }
+                      >
+                        Favorite ⭐
+                      </button>
+                    </td>
                   </tr>
                 ))}
             </tbody>
