@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import { BeatLoader } from "react-spinners";
 import { useState, useContext, useEffect } from "react";
 import carparkDetails from "./../data/HDBCarparkInformation.json";
@@ -9,49 +8,21 @@ import styles from "./Search.module.css";
 
 function Search() {
   const globalCtx = useContext(GlobalContext);
-  const { search, setSearch, parkList, setParkList, isLoading, setIsLoading } =
-    globalCtx;
-
-  // caelen (140124): adding new states for search results batching, and page
+  const {
+    search,
+    setSearch,
+    parkList,
+    setParkList,
+    isLoading,
+    setIsLoading,
+    handleFavorites,
+  } = globalCtx;
   const [searchResultsBatch, setSearchResultsBatch] = useState(10);
-  const [resultsPage, setResultsPage] = useState(1);
-  const [visibleResults, setVisibleResults] = useState([]);
 
   useEffect(() => {
     getSlots();
   }, []);
-  /*
-  useEffect(() => {
-    setVisibleResults(search.slice((resultsPage - 1) * searchResultsBatch, resultsPage * searchResultsBatch));
-  }, [search, searchResultsBatch, resultsPage]);
 
-  useEffect(() => {
-    getSlots(search.slice((resultsPage - 1) * searchResultsBatch, resultsPage * searchResultsBatch));
-  }, [search, searchResultsBatch, resultsPage]);
-
-  const handleResultsToggle = (newSearchResultsBatch) => {
-    setSearchResultsBatch(newSearchResultsBatch);
-    setResultsPage(1); 
-  };
-
-  const loadMoreResults = () => {
-    getSlots();
-    setResultsPage(resultsPage + 1);
-  };
-
-  const goToPrevPage = () => {
-    if (resultsPage > 1) {
-      setResultsPage(resultsPage - 1);
-    }
-  };
-
-  const goToNextPage = () => {
-    const totalPages = Math.ceil(search.length / searchResultsBatch);
-    if (resultsPage < totalPages) {
-      setResultsPage(resultsPage + 1);
-    }
-  }; 
-*/
   const getSlots = async () => {
     try {
       setIsLoading(true);
@@ -118,29 +89,42 @@ function Search() {
           <table className={styles.table}>
             <thead>
               <tr className={styles.tableContainer}>
-                <th>Index</th>
                 <th>Carpark Number</th>
                 <th>Address</th>
                 <th>Lots Available</th>
                 <th>Total Lots</th>
-                <th>🗺️</th>
+                <th>View on Map 🗺️</th>
+                <th>Add to Fav</th>
               </tr>
             </thead>
             <tbody>
               {filteredLots
                 .slice(0, searchResultsBatch)
                 .map((parkingLot, index) => (
-                  <tr key={uuid()} className={styles.tableContainer}>
-                    <td>{index}</td>
+                  <tr
+                    key={parkingLot.carpark_number}
+                    className={styles.tableContainer}
+                  >
                     <td>{parkingLot.carpark_number}</td>
                     <td className={styles.address}>{parkingLot.address}</td>
                     <td>{parkingLot.carpark_info[0].lots_available}</td>
                     <td>{parkingLot.carpark_info[0].total_lots}</td>
-                    <NavLink
-                      to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
-                    >
-                      View Details
-                    </NavLink>
+                    <td>
+                      <NavLink
+                        to={`/search/${parkingLot.x_coord},${parkingLot.y_coord}`}
+                      >
+                        <button className={styles.details}>Map View</button>
+                      </NavLink>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() =>
+                          handleFavorites(parkingLot.carpark_number)
+                        }
+                      >
+                        Favorite ⭐
+                      </button>
+                    </td>
                   </tr>
                 ))}
             </tbody>

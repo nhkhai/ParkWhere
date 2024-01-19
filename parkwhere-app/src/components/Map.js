@@ -44,8 +44,8 @@ function Map() {
           defaultZoom={mapData.zoom}
         >
           <LocationHover
-            lat={mapData.center.latitude}
-            lng={mapData.center.longitude}
+            lat={mapData.center.lat}
+            lng={mapData.center.lng}
             text={"📍    Carpark location"}
           />
         </GoogleMapReact>
