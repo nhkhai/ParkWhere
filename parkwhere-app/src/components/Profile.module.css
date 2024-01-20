@@ -19,3 +19,12 @@
 h3 {
   margin: 1.5rem;
 }
+
+.imgContainer {
+  border-radius: 10px;
+}
+
+.imgContainerDark {
+  background-color: var(--color-grey-light-1);
+  border-radius: 10px;
+}

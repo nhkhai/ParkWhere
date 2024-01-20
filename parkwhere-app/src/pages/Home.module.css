@@ -1,3 +1,16 @@
 .home {
   width: 600;
 }
+
+.dark {
+  background: var(--color-grey-dark-2);
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+  color: var(--color-grey-light-4);
+  h1 {
+    color: var(--color-grey-light-1);
+  }
+  h2 {
+    color: var(--color-grey-light-4);
+  }
+}

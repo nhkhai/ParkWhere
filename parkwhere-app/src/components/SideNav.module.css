@@ -5,6 +5,16 @@
   text-transform: uppercase;
 }
 
+.sidebarDark {
+  flex: 0 0 200px;
+  margin-top: 2rem;
+  margin-left: 1rem;
+  text-transform: uppercase;
+  a {
+    color: var(--color-primary-light-2);
+  }
+}
+
 .side-menu {
   list-style: none;
   font-size: 1.8rem;

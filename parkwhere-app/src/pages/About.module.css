@@ -12,3 +12,13 @@
 p {
   margin: 2rem;
 }
+
+.dark {
+  color: var(--color-grey-light-4);
+  h1 {
+    color: var(--color-grey-light-1);
+  }
+  h2 {
+    color: var(--color-grey-light-4);
+  }
+}
