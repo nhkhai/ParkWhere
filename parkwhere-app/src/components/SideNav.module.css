@@ -10,6 +10,7 @@
   margin-top: 2rem;
   margin-left: 1rem;
   text-transform: uppercase;
+  color: var(--color-primary-light-2);
   a {
     color: var(--color-primary-light-2);
   }
@@ -26,7 +27,6 @@
 }
 
 .nav-item {
-  color: var(--color-primary-dark);
   text-decoration: none;
   padding: 8px 12px;
   transition: all 0.2s ease-in-out;
@@ -34,7 +34,6 @@
 }
 
 .nav-item-active {
-  color: var(--color-primary-dark);
   text-decoration: none;
   padding: 8px 12px;
   background-color: var(--color-primary-light-2);
