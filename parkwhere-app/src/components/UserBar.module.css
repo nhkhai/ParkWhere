@@ -1,5 +1,4 @@
 .userBarContainer {
-  margin: 10px;
   font-size: 12px;
   text-transform: uppercase;
   background-color: #88b7ed;
@@ -48,7 +47,6 @@
 }
 
 .userBarContainerDark {
-  margin: 10px;
   font-size: 12px;
   text-transform: uppercase;
   background-color: var(--color-grey-dark-2);
