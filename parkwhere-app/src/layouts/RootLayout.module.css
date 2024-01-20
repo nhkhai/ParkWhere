@@ -84,6 +84,12 @@ label {
   color: var(--color-grey-dark-2);
 }
 
+a:link,
+a:visited {
+  text-decoration: none;
+  color: var(--color-primary-dark);
+}
+
 .container {
   max-width: 100%;
 }
