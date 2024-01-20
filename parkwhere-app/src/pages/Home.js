@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <div className={`${modeCtx.isLight ? styles.card : styles.dark}`}>
-      <h1>ParkHere</h1>
+      <h1>ParkWhere</h1>
       <h2>Welcome to the ParkWhere app! </h2>
       <h3>Click on search to start searching for available parking lots. </h3>
     </div>
