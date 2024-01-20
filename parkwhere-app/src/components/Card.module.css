@@ -7,7 +7,7 @@
 
 .dark {
   padding: 20px;
-  background: #f3f0ff;
+  background: var(--color-grey-dark-2);
   border-radius: 10px;
   box-shadow: var(--shadow-light);
   color: #2d2d2d;

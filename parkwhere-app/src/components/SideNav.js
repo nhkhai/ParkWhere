@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import Card from "./Card";
 import styles from "./SideNav.module.css";
 import Toggle from "./Toggle";
+import ModeContext from "../context/ModeContext";
+import { useContext } from "react";
 
 const navItems = [
   {
@@ -31,8 +33,10 @@ const customNavLinkStyle = ({ isActive }) =>
   isActive ? "nav-item-active" : "nav-item";
 
 function SideNav() {
+  const modeCtx = useContext(ModeContext);
+
   return (
-    <nav className={styles.sidebar}>
+    <nav className={`${modeCtx.isLight ? styles.sidebar : styles.sidebarDark}`}>
       <Card>
         <Toggle />
         <NavItems />

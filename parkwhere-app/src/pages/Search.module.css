@@ -24,3 +24,11 @@ a {
 .tableMain {
   position: relative;
 }
+
+.tableContainerDark_Head {
+  color: var(--color-grey-light-1);
+}
+
+.tableContainerDark_Body {
+  color: var(--color-grey-light-3);
+}

@@ -5,9 +5,12 @@ import axios from "axios";
 import GlobalContext from "../context/GlobalContext";
 import { NavLink } from "react-router-dom";
 import styles from "./Search.module.css";
+import ModeContext from "../context/ModeContext";
 
 function Search() {
   const globalCtx = useContext(GlobalContext);
+  const modeCtx = useContext(ModeContext);
+
   const {
     search,
     setSearch,
@@ -88,7 +91,13 @@ function Search() {
         ) : filteredLots.length ? (
           <table className={styles.table}>
             <thead>
-              <tr className={styles.tableContainer}>
+              <tr
+                className={`${
+                  modeCtx.isLight
+                    ? styles.tableContainer
+                    : styles.tableContainerDark_Head
+                }`}
+              >
                 <th>Carpark Number</th>
                 <th>Address</th>
                 <th>Lots Available</th>
@@ -103,7 +112,11 @@ function Search() {
                 .map((parkingLot, index) => (
                   <tr
                     key={parkingLot.carpark_number}
-                    className={styles.tableContainer}
+                    className={`${
+                      modeCtx.isLight
+                        ? styles.tableContainer
+                        : styles.tableContainerDark_Body
+                    }`}
                   >
                     <td>{parkingLot.carpark_number}</td>
                     <td className={styles.address}>{parkingLot.address}</td>

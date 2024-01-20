@@ -2,8 +2,10 @@ import { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 import { NavLink } from "react-router-dom";
 import styles from "./Favorites.module.css";
+import ModeContext from "../context/ModeContext";
 
 function Favorites() {
+  const modeCtx = useContext(ModeContext);
   const globalCtx = useContext(GlobalContext);
   const { favoriteList, setFavoriteList } = globalCtx;
 
@@ -19,7 +21,7 @@ function Favorites() {
   };
 
   return (
-    <div className={styles.settings}>
+    <div className={`${styles.settings} ${!modeCtx.isLight && styles.dark}`}>
       <h1>Favorites</h1>
       <br />
       <table className={styles.table}>

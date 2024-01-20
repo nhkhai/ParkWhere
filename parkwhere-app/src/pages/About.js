@@ -8,9 +8,14 @@ import cat4 from "../assets/cat4.jpg";
 import styles from "./About.module.css";
 import Profile from "../components/Profile";
 
+import { useContext } from "react";
+import ModeContext from "../context/ModeContext";
+
 function About() {
+  const modeCtx = useContext(ModeContext);
+
   return (
-    <div className={styles.about}>
+    <div className={`${modeCtx.isLight ? styles.about : styles.dark}`}>
       <h1>About</h1>
       <h2>Parking lot availability at a glance! </h2>
       <p>
